@@ -199,7 +199,8 @@ let AppComponent = class AppComponent {
                 '0 MetaCoin, ensure you\'ve configured that source properly. If using MetaMask, see the following link. Feel ' +
                 'free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask');
             // Use Mist/MetaMask's provider
-            this.web3 = new Web3(window.web3.currentProvider);
+            window.web3 = new Web3(window.web3.currentProvider);
+            this.web3 = window.web3;
         }
         else {
             console.warn('No web3 detected. Falling back to http://localhost:8545. You should remove this fallback when ' +
